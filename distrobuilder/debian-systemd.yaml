@@ -320,6 +320,10 @@ actions:
       # Remove unused man (locales)
       find /usr/share/man -type d ! -name "man*" -exec rm -vrf {} +
 
+      # Fix error with installing man-db
+      # https://github.com/BelaPlatform/bela-image/issues/16
+      mkdir -p /var/cache/debconf
+
       # Remove additional system variables
       rm -fv /etc/sysctl.d/*
       rm -fv /usr/lib/sysctl.d/*
